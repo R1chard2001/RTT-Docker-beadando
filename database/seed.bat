@@ -1,0 +1,1 @@
+mysql -u szopUser -p szop_database < szop_template.sql

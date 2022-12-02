@@ -1,0 +1,27 @@
+version: "2"
+services:
+  php:
+    container_name: szop-php-api
+    build: phpDocker
+    ports:
+      - "80:80"
+    volumes:
+      - type: bind
+        source: ./src
+        target: /var/www/html
+
+  mysql:
+    container_name: szop-mysql-server
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_USER: szopUser
+      MYSQL_PASSWORD: szopPassword
+      MYSQL_DATABASE: szop_database
+      MYSQL_ROOT_PASSWORD: nagyonTitKosJelszo
+      MYSQL_ROOT_HOST: "0.0.0.0/0"
+    
+
+volumes:
+  src:
